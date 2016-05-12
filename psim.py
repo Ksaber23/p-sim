@@ -17,11 +17,11 @@ txt3 = Text(Point(25,40), "1")
 #win.getMouse()
 
 txt1.draw(win)
-#sleep(1)
+sleep(1)
 txt2.draw(win)
-#sleep(1)
+sleep(1)
 txt3.draw(win)
-#sleep(1)
+sleep(1)
 txt.draw(win)
 
 
