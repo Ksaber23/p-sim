@@ -30,17 +30,20 @@ power = input('Enter power (0 - 100)')
 power = float(power)
 
 txt1.draw(win)
-sleep(.1)
+sleep(.2)
+txt1.undraw()
 txt2.draw(win)
-sleep(.1)
+sleep(.2)
+txt2.undraw()
 txt3.draw(win)
-sleep(.1)
+sleep(.2)
 txt.draw(win)
 
-
+#sleeptime = .05
+sleeptime = .035
 
 for x in range(0, 40):
-	pt = Point(pt.x+(vX*.05), pt.y-(vY*.05))
+	pt = Point(pt.x+(vX*sleeptime), pt.y-(vY*sleeptime))
 	pt.draw(win)
 	vX = vel * (math.cos(math.radians(angle)))
 	vY = vel * (math.sin(math.radians(angle)))
@@ -50,12 +53,12 @@ for x in range(0, 40):
 		txtVel.undraw()
 		txtVel = Text(Point(70,70), "Velocity:" + str(int(vel)))
 		txtVel.draw(win)
-	sleep(0.05)
+	sleep(sleeptime)
 velold = vel
 while (pt.y < 350):
-	pt = Point(pt.x+(vX*.05), pt.y-(vY*0.05))
+	pt = Point(pt.x+(vX*sleeptime), pt.y-(vY*sleeptime))
 	pt.draw(win)
-	vY = vY - (9.81*.05)
+	vY = vY - (9.81*sleeptime)
 	if (pt.x > box.p1.x) and  (pt.x < box.p2.x):
 		if (pt.y > box.p1.y) and  (pt.y < box.p2.y):
 			status = 1
@@ -63,7 +66,7 @@ while (pt.y < 350):
 		txtVel.undraw()
 		txtVel = Text(Point(70,70), "Velocity:" + str(int(vel)))
 		txtVel.draw(win)
-	sleep(0.05)
+	sleep(sleeptime)
 if status == 0:
 	print "Loser"
 else:
